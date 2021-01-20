@@ -1,12 +1,15 @@
 // index.js
-var express = require('express');
-var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
-var flash = require('connect-flash');
-var session = require('express-session');
-var app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+const flash = require('connect-flash');
+const session = require('express-session');
+const app = express();
+
+const router = express.Router();
 
 // Other settings
+app.set("port" , (process.env.PORT || 5000)); 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
@@ -17,5 +20,5 @@ app.use(flash());
 // Routes
 app.use('/', require('./routes/home'));
 
-console.log('Console Log');
-
+app.listen(app.get("port") , 
+    function(){ console.log("APP IS RUNNING ON ["+ app.get("port") +"]"); }); 
