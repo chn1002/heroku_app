@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
+var util = require('./util');
+var fs = require('fs');
 const app = express();
 
 const router = express.Router();
@@ -16,6 +18,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 app.use(flash());
+
+// Custom Middlewares
+app.use(function (req, res, next) {
+    res.locals.util = util;
+    next();
+});
+
 
 // Routes
 app.use('/', require('./routes/home'));

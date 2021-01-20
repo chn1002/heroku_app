@@ -1,0 +1,36 @@
+<!-- views/home/about.ejs -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/head') %>
+    <script src="//naver.github.io/egjs-view360/release/latest/dist/PanoViewer/view360.panoviewer.pkgd.min.js"></script>
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+
+    <div class="container mb-3">
+
+        <h2 class="mb-3">About</h2>
+
+        <P>이 사이트는 Test 중 입니다.</p>
+
+    </div>
+    <div class="viewer" id="myPanoViewer">
+    </div>
+
+    <script>
+        // create PanoViewer with option
+        var PanoViewer = eg.view360.PanoViewer;
+        var container = document.getElementById("myPanoViewer");// Area where the image will be displayed(HTMLElement)
+            
+        var panoViewer = new PanoViewer(container, {
+            // If projectionType is not specified, the default is "equirectangular".
+            image: "/assets/img/smartphone-panorama-picture.jpg",
+          }
+        );
+    </script>
+    </body>
+</html>
