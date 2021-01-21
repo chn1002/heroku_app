@@ -5,32 +5,39 @@
 
 <head>
     <%- include('../partials/head') %>
-    <script src="//naver.github.io/egjs-view360/release/latest/dist/PanoViewer/view360.panoviewer.pkgd.min.js"></script>
 </head>
 
 <body>
     <%- include('../partials/nav') %>
 
-    <div class="container mb-3">
+    <div class="container">
 
         <h2 class="mb-3">About</h2>
 
         <P>이 사이트는 Test 중 입니다.</p>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css"/>
 
-    </div>
-    <div class="viewer" id="myPanoViewer">
+        <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
+        
+        <div id="viewer"></div>
+        
+        <style>
+            /* the viewer container must have a defined size */
+            #viewer {
+            width: 100vw;
+            height: 50vh;
+            }
+        </style>
+        
+        <script>
+            var viewer = new PhotoSphereViewer.Viewer({
+            container: document.querySelector('#viewer'),
+            panorama: '/assets/img/smartphone-panorama-picture.jpg'
+            });
+        </script>
     </div>
 
-    <script>
-        // create PanoViewer with option
-        var PanoViewer = eg.view360.PanoViewer;
-        var container = document.getElementById("myPanoViewer");// Area where the image will be displayed(HTMLElement)
-            
-        var panoViewer = new PanoViewer(container, {
-            // If projectionType is not specified, the default is "equirectangular".
-            image: "/assets/img/smartphone-panorama-picture.jpg",
-          }
-        );
-    </script>
     </body>
 </html>

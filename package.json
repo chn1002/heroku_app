@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build" : "",
+    "build": "",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/chn1002/heroku_app#readme",
   "dependencies": {
-    "@egjs/view360": "^3.4.3",
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
     "ejs": "^3.1.5",
@@ -28,6 +27,9 @@
     "fs": "0.0.1-security",
     "method-override": "^3.0.0",
     "nodemon": "^1.19.2",
-    "serverless-http": "^2.3.0"
+    "photo-sphere-viewer": "^4.1.0",
+    "serverless-http": "^2.3.0",
+    "three": "^0.124.0",
+    "uevent": "^2.0.0"
   }
 }
