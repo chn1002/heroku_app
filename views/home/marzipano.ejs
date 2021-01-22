@@ -1,0 +1,103 @@
+<!-- views/home/about.ejs -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/head') %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+    <style> @-ms-viewport { width: device-width; } </style>
+    <link rel="stylesheet" href="/css/reset.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+
+    <div class="container">
+
+        <h2 class="mb-3">About</h2>
+
+        <P>이 사이트는 Test 중 입니다.</p>
+    </div>
+    <div id="pano"></div>
+
+    <div id="sceneList">
+      <ul class="scenes">
+        
+          <a href="javascript:void(0)" class="scene" data-id="0-img01">
+            <li class="text">img01</li>
+          </a>
+        
+          <a href="javascript:void(0)" class="scene" data-id="1-img02">
+            <li class="text">img02</li>
+          </a>
+        
+          <a href="javascript:void(0)" class="scene" data-id="2-img03">
+            <li class="text">img03</li>
+          </a>
+        
+          <a href="javascript:void(0)" class="scene" data-id="3-img04">
+            <li class="text">img04</li>
+          </a>
+        
+          <a href="javascript:void(0)" class="scene" data-id="4-img05">
+            <li class="text">img05</li>
+          </a>
+        
+          <a href="javascript:void(0)" class="scene" data-id="5-img06">
+            <li class="text">img06</li>
+          </a>
+        
+      </ul>
+    </div>
+
+
+<div id="titleBar">
+    <h1 class="sceneName"></h1>
+  </div>
+  
+  <a href="javascript:void(0)" id="autorotateToggle">
+    <img class="icon off" src="maimg/play.png">
+    <img class="icon on" src="maimg/pause.png">
+  </a>
+  
+  <a href="javascript:void(0)" id="fullscreenToggle">
+    <img class="icon off" src="maimg/fullscreen.png">
+    <img class="icon on" src="maimg/windowed.png">
+  </a>
+  
+  <a href="javascript:void(0)" id="sceneListToggle">
+    <img class="icon off" src="maimg/expand.png">
+    <img class="icon on" src="maimg/collapse.png">
+  </a>
+  
+  <a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
+    <img class="icon" src="maimg/up.png">
+  </a>
+  <a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
+    <img class="icon" src="maimg/down.png">
+  </a>
+  <a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
+    <img class="icon" src="maimg/left.png">
+  </a>
+  <a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
+    <img class="icon" src="maimg/right.png">
+  </a>
+  <a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
+    <img class="icon" src="maimg/plus.png">
+  </a>
+  <a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
+    <img class="icon" src="maimg/minus.png">
+  </a>
+
+    <script src="/js/marzipano.js"></script>
+    <script src="/js/vendor/screenfull.min.js" ></script>
+    <script src="/js/vendor/bowser.min.js" ></script>
+    <script src="/js/vendor/marzipano.js" ></script>
+    <script src="/js/data.js"></script>
+    <script src="/js/proindex.js"></script>
+</body>
+</html>

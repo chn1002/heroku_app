@@ -6,8 +6,12 @@ router.get('/', function (req, res) {
     res.render('home/index');
 });
 
-router.get('/about', function (req, res) {
-    res.render('home/about');
+router.get('/photosphereviewer', function (req, res) {
+    res.render('home/photosphereviewer');
+});
+
+router.get('/marzipano', function (req, res) {
+    res.render('home/marzipano');
 });
 
 module.exports = router;
