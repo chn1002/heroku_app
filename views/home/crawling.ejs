@@ -1,0 +1,66 @@
+<!-- views/home/welcome.ejs -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/head') %>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+       function parsingJsonData(result){
+           var data;
+           var tableData = document.getElementById('jsonTable');
+            for(var val in result)
+            {
+                var objRow = tableData.insertRow();
+
+                var objCel_text = objRow.insertCell();
+                objCel_text.innerHTML = result[val]._text;
+
+                var objCel_value = objRow.insertCell();
+                objCel_value.innerHTML = result[val]._num;
+            }
+
+            return data;
+        }
+
+       function init() {
+            var get = 'GET METHOD CALL';
+            var htmlJsonData = '';
+
+            //Ajax GET Method TEST
+            $.ajax({
+                url: '/crawling/apicrawling',
+                dataType: 'json',
+                type: 'GET',
+                data: {
+                    data: get
+                },
+                success: function (result) {
+                    if (result) {
+                        htmlJsonData = parsingJsonData(result)
+                        let today = new Date();   
+                        $('#get_output').html(today);
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+
+<body onload="init();">
+    <%- include('../partials/nav') %>
+
+    <div class="container contact contact-index">
+        <h2>Crawling</h2>
+        <p id='get_output'>get</p>
+        <table id='jsonTable' border="true">
+            <tr>
+                <td>Title</td>
+                <td>Value</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

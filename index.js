@@ -33,6 +33,8 @@ app.use(function (req, res, next) {
 
 // Routes
 app.use('/', require('./routes/home'));
+app.use('/crawling', require('./routes/crawling'));
+app.use('/api', require('./routes/api'));
 
 app.listen(app.get("port") , 
     function(){ console.log("APP IS RUNNING ON ["+ app.get("port") +"]"); }); 

@@ -1,0 +1,96 @@
+<!-- views/home/welcome.ejs -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/head') %>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function(){
+            timer = setInterval( function () {
+                var get = 'TIME';
+
+                $.ajax ({
+                    url: '/api/get',
+                    dataType: 'json',
+                    type: 'GET',
+                    data: {
+                        data: get
+                    },
+                    success: function (result) {
+                        if (result) {
+                            $('#get_time').html(result.result);
+                        }
+                    }
+                });
+    		}, 1000); 
+        });
+
+        $(document).ready(function () {
+            $('#getMethod').click(function () {
+
+                var get = 'GET METHOD CALL';
+
+                //Ajax GET Method TEST
+                $.ajax({
+                    url: '/api/get',
+                    dataType: 'json',
+                    type: 'GET',
+                    data: {
+                        data: get
+                    },
+                    success: function (result) {
+                        if (result) {
+                            $('#get_output').html(result.result);
+                        }
+                    }
+                });
+            });
+
+            $('#postMethod').click(function () {
+                var post = 'POST METHOD CALL';
+
+                //Ajax POST Method TEST
+                $.ajax({
+                    url: '/api/post',
+                    dataType: 'json',
+                    type: 'POST',
+                    data: {
+                        data: post
+                    },
+                    success: function (result) {
+                        if (result) {
+                            $('#post_output').html(result.result);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+    <div class="container contact contact-index">
+        <h2>Instagram 페이지</h2>
+        <p id='get_time'>TIME</p>
+
+        <div style="border: 3px solid gray; width: 180px;">
+            <h2>GET</h2>
+            <button id='getMethod'>GET</button>
+            <p id='get_output'>
+                get
+            </p>
+        </div>
+
+        <div style="border: 3px solid gray; width: 180px;">
+            <h2>POST</h2>
+            <button id='postMethod'>POST</button>
+            <p id='post_output'>
+                psot
+            </p>
+        </div>
+    </div>
+</body>
+</html>

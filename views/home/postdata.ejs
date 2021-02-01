@@ -1,0 +1,26 @@
+<!-- views/home/welcome.ejs -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/head') %>
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+    <%= title %> <br>
+
+    <div class="container contact contact-index">
+        <h2>Post 페이지</h2>
+        <h2><%= method %> </h2>
+        <p>id: <%= id %></p>
+
+        <form method="post" action="sendPost">
+            <p><label>Input Color : <input type="text" name="color"></label></p>
+            <p><input type="submit" value="Submit"></p>
+        </form>
+    </div>
+</body>
+
+</html>
