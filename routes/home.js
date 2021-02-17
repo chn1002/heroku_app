@@ -29,4 +29,28 @@ router.post('/sendPost', function (req, res) {
     res.render('home/postdata', { title: 'PostD', id: bodyT, method: "post"});
 });
 
+router.get('/ar', function (req, res) {
+    res.render('home/ar');
+});
+
+router.get('/faceapi', function (req, res) {
+    res.render('home/faceapi');
+});
+
+router.post('/fetch_external_image', async (req, res) => {
+    console.log('Data: ', req.body);
+
+    const { imageUrl } = req.body
+    if (!imageUrl) {
+      return res.status(400).send('imageUrl param required')
+    }
+    try {
+      const externalResponse = await request(imageUrl)
+      res.set('content-type', externalResponse.headers['content-type'])
+      return res.status(202).send(Buffer.from(externalResponse.body))
+    } catch (err) {
+      return res.status(404).send(err.toString())
+    }
+  })
+
 module.exports = router;
